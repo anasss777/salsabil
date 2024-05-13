@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-page-custom-font */
 import { useTranslations } from "next-intl";
 
 export default function Head() {
@@ -9,10 +10,12 @@ export default function Head() {
       <meta content="width=device-width, initial-scale=1" name="viewport" />
       <meta name="description" content={t("description")} />
       <link rel="icon" href="/images/logo.ico" sizes="any" as="image" />
-      {/* <link
-        href="https://fonts.googleapis.com/css2?family=Aref+Ruqaa:wght@400;700&family=Dancing+Script:wght@400..700&family=Gulzar&family=McLaren&family=Montserrat:wght@300&family=Tajawal:wght@200;300;400;500;700;800;900&display=swap"
+      <link rel="preconnect" href="https://fonts.googleapis.com" />
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="" />
+      <link
+        href="https://fonts.googleapis.com/css2?family=Marhey:wght@300..700&display=swap"
         rel="stylesheet"
-      /> */}
+      />
     </head>
   );
 }

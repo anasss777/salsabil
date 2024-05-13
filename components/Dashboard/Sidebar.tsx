@@ -25,7 +25,11 @@ const Sidebar = () => {
           locale={locale}
           className={`flex flex-row justify-center items-center gap-1 mb-10`}
         >
-          <p>مدونة سلسبيل</p>
+          <p
+            className={`text-purple-200 text-xl font-marhey bg-[#6b24b2] rounded-full px-2 border border-purple-400`}
+          >
+            سلسبيل
+          </p>
         </Link>
 
         {/* Dashboard button */}

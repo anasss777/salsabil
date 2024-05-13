@@ -7,7 +7,7 @@ import "react-quill/dist/quill.snow.css";
 import parse from "html-react-parser";
 import { addPost } from "@/utils/post";
 import { useRouter } from "next/navigation";
-import { svgLoading } from "@/components/svgPaths";
+import { svgDot, svgLoading } from "@/components/svgPaths";
 
 const Dashboard = () => {
   const t = useTranslations("dashboard");
@@ -56,7 +56,24 @@ const Dashboard = () => {
         className={`bg-white/40 w-full h-96 pb-[44px]`}
       />
 
-      <div className="quill-content">{parse(content)}</div>
+      <div className={`flex flex-col`}>
+        <p
+          className={`text-primary font-bold text-3xl md:text-4xl lg:text-5xl h-fit text-center mb-4`}
+        >
+          {postTitle}
+        </p>
+
+        <div className="flex flex-row gap-2 mx-auto mb-12">
+          <span className="text-transparent border-b border-b-primary/70 mb-4">
+            __________
+          </span>
+          <span className={`mt-4`}>{svgDot}</span>
+          <span className="text-transparent border-b border-b-primary/70 mb-4">
+            __________
+          </span>
+        </div>
+        <div className="quill-content">{parse(content)}</div>
+      </div>
 
       <button
         className={`btn px-4 mx-auto bg-primary mb-20`}
