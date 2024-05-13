@@ -1,0 +1,14 @@
+{
+    "head": {
+        "title": "سلسبيل",
+        "description": "سلسبيل"
+    },
+    "dashboard": {
+        "postTitle": "عنوان المقالة",
+        "submit": "نشر",
+        "loading": "جاري النشر"
+    },
+    "adminPanel": {
+        "addPost": "إضافة منشور"
+    }
+}

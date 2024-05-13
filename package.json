@@ -1,0 +1,34 @@
+{
+  "name": "salsabil-blog",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "@types/next": "^9.0.0",
+    "firebase": "^10.11.1",
+    "html-react-parser": "^5.1.10",
+    "next": "14.2.3",
+    "next-intl": "^3.13.0",
+    "next-themes": "^0.3.0",
+    "react": "^18",
+    "react-dom": "^18",
+    "react-quill": "^2.0.0",
+    "sanitize-html": "^2.13.0"
+  },
+  "devDependencies": {
+    "@types/node": "^20",
+    "@types/react": "^18.3.2",
+    "@types/react-dom": "^18",
+    "@types/sanitize-html": "^2.11.0",
+    "eslint": "^8",
+    "eslint-config-next": "14.2.3",
+    "postcss": "^8",
+    "tailwindcss": "^3.4.1",
+    "typescript": "^5"
+  }
+}
