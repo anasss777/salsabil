@@ -7,7 +7,6 @@ import ThemeSwitcher from "../ThemeSwitcher";
 
 const NavbarElements = () => {
   const t = useTranslations("nav");
-  const a = useTranslations("accountHeader");
   const locale = useLocale();
   const isArabic = locale === "ar";
   const [isMenuOpen, setMenuOpen] = useState(false);

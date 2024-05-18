@@ -10,6 +10,10 @@
     }
 }
 
+.bg-custom-postion {
+    background-position: 55% 25%;
+}
+
 .rtl {
     direction: rtl !important;
 }
@@ -57,6 +61,7 @@ p {
 
 li {
     font-size: 16px;
+    margin: 0 70px;
 }
 
 @media (min-width: 768px) {
@@ -66,6 +71,14 @@ li {
     
     h2 {
         font-size: 20px;
+    }
+
+    li {
+        margin: 0 50px;
+    }
+
+    .bg-custom-postion {
+        background-position: 35% 25%;
     }
 }
 
@@ -84,6 +97,7 @@ li {
 
     li {
         font-size: 18px;
+        margin: 0 70px;
     }
 }
 

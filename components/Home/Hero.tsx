@@ -1,66 +1,36 @@
 "use client";
 
-import React, { useEffect, useState } from "react";
-import firebase from "@/firebase";
-import { Post } from "@/types/post";
-import parse from "html-react-parser";
-import { svgDot } from "../svgPaths";
-import Image from "next/image";
+import React from "react";
+import { svgSearch } from "../svgPaths";
+import { useLocale } from "next-intl";
 
 const Hero = () => {
-  const [posts, setPosts] = useState<Post[]>([]);
-
-  useEffect(() => {
-    const unsubscribe = firebase
-      .firestore()
-      .collection("posts")
-      .onSnapshot((snapshot) => {
-        const newPosts: Post[] = []; // Create a new array to hold updated posts
-        snapshot?.forEach((doc) => {
-          newPosts.push({
-            postId: doc.id,
-            ...doc.data(),
-          } as Post);
-        });
-
-        setPosts(newPosts);
-      });
-
-    // Unsubscribe from Firestore listener when component unmounts
-    return () => unsubscribe();
-  }, []);
+  const locale = useLocale();
+  const isArabic = locale === "ar";
 
   return (
-    <div className={`rtl px-10 lg:px-32 py-20`}>
-      {posts.map((post, index) => (
-        <div key={index} className={`flex flex-col`}>
-          <p
-            className={`text-primary font-bold text-3xl md:text-4xl lg:text-5xl h-fit text-center mb-4`}
-          >
-            {post.postTitle}
-          </p>
-
-          <div className="flex flex-row gap-2 mx-auto mb-12">
-            <span className="text-transparent border-b border-b-primary/70 mb-4">
-              __________
-            </span>
-            <span className={`mt-4`}>{svgDot}</span>
-            <span className="text-transparent border-b border-b-primary/70 mb-4">
-              __________
-            </span>
-          </div>
-
-          <Image
-            src="/images/testing.png"
-            alt="testing"
-            height={1000}
-            width={1000}
-            className={`object-scale-down h-96 w-full`}
+    <div
+      className={`flex flex-col justify-center items-center h-[70vh] w-full bg-[url('/images/hero2.jpeg')] bg-custom-postion
+      bg-primary/10 bg-blend-overlay`}
+    >
+      <div className="flex flex-col justify-center mx-auto items-center w-full gap-10">
+        <p
+          className={`text-white font-bold text-4xl bg-primary/70 rounded-md border-2 border-primary px-5 py-2 mx-6 text-center ${
+            isArabic && "rtl"
+          }`}
+        >
+          السلام عليكم ... السلام عليكم ... السلام عليكم
+        </p>
+        <div className="flex flex-row items-center justify-center w-full">
+          <input
+            type="text"
+            placeholder="إبحث عن مقالة..."
+            className={`py-2 px-2 rounded-e-md focus:outline-primary/70 min-[425px]:w-[300px] sm:w-1/2 lg:w-1/5 w-[80%] bg-gray-50
+            shadow-Card2 ${isArabic && "rtl"}`}
           />
-
-          <div className="quill-content">{parse(post.content)}</div>
+          <button className="bg-primary p-3 rounded-e-md">{svgSearch}</button>
         </div>
-      ))}
+      </div>
     </div>
   );
 };

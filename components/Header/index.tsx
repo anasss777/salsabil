@@ -11,7 +11,7 @@ const { Link } = createSharedPathnamesNavigation({ locales });
 
 const Header = () => {
   const locale = useLocale();
-  const t = useTranslations("header");
+  // const t = useTranslations("header");
   const isArabic = locale === "ar";
   const rtl = isArabic && "rtl";
   const [scrolling, setScrolling] = useState(false);
@@ -34,7 +34,7 @@ const Header = () => {
   return (
     <div
       className={`sticky top-0 transition-all z-40 flex flex-row justify-between items-center w-full h-fit py-3 lg:py-0 px-2 md:px-10 lg:px-20
-      bg-primary dark:bg-primary border-b-2 border-purple-800 dark:border-purple-300 ${rtl} ${
+      bg-primary dark:bg-primary border-b-2 border-secondary dark:border-secondary ${rtl} ${
         scrolling ? "bg-primary/90" : "bg-primary"
       }`}
     >

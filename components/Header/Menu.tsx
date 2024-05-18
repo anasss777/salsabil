@@ -15,11 +15,7 @@ type Props = {
 const Menu = ({ href, text }: Props) => {
   const locale = useLocale();
   return (
-    <li
-      className={`group relative mr-3 list-none font-bold ${
-        locale === "en" && "ml-3"
-      }`}
-    >
+    <li className={`group relative mr-0 list-none font-bold`}>
       <Link
         locale={locale}
         href={href}

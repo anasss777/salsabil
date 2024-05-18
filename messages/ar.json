@@ -17,5 +17,18 @@
         "category2": "التصنيف الثاني",
         "category3": "التصنيف الثالث",
         "contact": "تواصل معي"
+    },
+    "footer": {
+        "email": "البريد الإلكتروني",
+        "phoneNumber": "رقم الهاتف",
+        "address": "الموقع",
+        "theAddress": "الشارع, المدينة, الدولة",
+        "developedBy": "تصميم و تطوير"
+    },
+    "postPage": {
+        "title": "مقالاتي"
+    },
+    "articles": {
+        "title": "مقالاتي"
     }
 }

@@ -7,13 +7,21 @@ import "react-quill/dist/quill.snow.css";
 import parse from "html-react-parser";
 import { addPost } from "@/utils/post";
 import { useRouter } from "next/navigation";
-import { svgDot, svgLoading } from "@/components/svgPaths";
+import {
+  svgAddImage,
+  svgDefaultImage,
+  svgDot,
+  svgLoading,
+} from "@/components/svgPaths";
+import Image from "next/image";
 
 const Dashboard = () => {
   const t = useTranslations("dashboard");
   const locale = useLocale();
   const isArabic = locale === "ar";
 
+  const [postImage, setPostImage] = useState<File>();
+  const [imageUrl, setImageUrl] = useState<string>();
   const [postTitle, setPostTitle] = useState("");
   const [content, setContent] = useState("");
   const [isLoading, setIsLoading] = useState(false);
@@ -28,6 +36,14 @@ const Dashboard = () => {
   ];
   const moduleOptions = {
     toolbar: toolbarOptions,
+  };
+
+  const handleImageChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files?.[0];
+    if (file) {
+      setPostImage(file);
+      setImageUrl(URL.createObjectURL(file));
+    }
   };
 
   return (
@@ -46,6 +62,24 @@ const Dashboard = () => {
           className={`border border-primary/70 px-2 py-1 rounded-md w-full sm:w-[70%] md:w-[50%] lg:w-[30%]`}
         />
       </div>
+
+      <button className="flex flex-col items-center justify-center cursor-default">
+        <label htmlFor={`imageInput`} className="cursor-pointer">
+          <span
+            className={`flex bg-primary/30 dark:bg-primary/50 h-fit w-fit p-1 rounded-full border border-primary shadow-md`}
+          >
+            {svgAddImage}
+          </span>
+        </label>
+        <input
+          type="file"
+          id={`imageInput`}
+          multiple
+          accept="image/*"
+          className="absolute -top-10"
+          onChange={(e) => handleImageChange(e)}
+        />
+      </button>
 
       {/* Post contnet */}
       <ReactQuill
@@ -72,6 +106,21 @@ const Dashboard = () => {
             __________
           </span>
         </div>
+
+        {imageUrl ? (
+          <Image
+            src={imageUrl}
+            alt="Post image"
+            height={1000}
+            width={1000}
+            className={`object-cover h-96 w-full rounded-xl border border-primary shadow-lg mb-8 flex justify-center`}
+          />
+        ) : (
+          <span className={`flex h-fit w-fit mx-auto mb-8`}>
+            {svgDefaultImage}
+          </span>
+        )}
+
         <div className="quill-content">{parse(content)}</div>
       </div>
 
@@ -82,6 +131,7 @@ const Dashboard = () => {
             postTitle,
             content,
             category: "test",
+            postImage,
           });
           setIsLoading(true);
           setTimeout(() => {
