@@ -27,7 +27,12 @@
         "developedBy": "تصميم و تطوير"
     },
     "postPage": {
-        "title": "مقالاتي"
+        "title": "مقالاتي",
+        "commenterName": "الإسم",
+        "commentContent": "إضافة تعليق...",
+        "comments": "التعليقات",
+        "nameError": "الرجاء إدخال الإسم",
+        "contentError": "الرجاء كتابة تعليق"
     },
     "articles": {
         "title": "مقالاتي",

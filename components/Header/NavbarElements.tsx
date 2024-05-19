@@ -51,8 +51,9 @@ const NavbarElements = () => {
       >
         <ul
           onClick={() => setMenuOpen(false)}
-          className={`block lg:flex flex-row gap-5 border rounded-lg border-teal-700 dark:bg-gray-600 lg:dark:bg-transparent lg:border-none ${
-            locale === "ar" && "text-right"
+          className={`block lg:flex flex-row gap-5 border rounded-lg border-primary bg-gray-100 dark:bg-[#291929] lg:bg-transparent
+          lg:border-none lg:dark:bg-transparent ${
+            locale === "ar" ? "text-right pr-3" : "text-left pl-3"
           }`}
         >
           <div
@@ -61,11 +62,11 @@ const NavbarElements = () => {
           >
             <ThemeSwitcher />
           </div>
-          <Menu text={t("about")} href="/about-us" />
+          <Menu text={t("about")} href="/about" />
           <Menu text={t("category1")} href="/category1" />
           <Menu text={t("category2")} href="/category2" />
           <Menu text={t("category3")} href="/category3" />
-          <Menu text={t("contact")} href="/contact-us" />
+          <Menu text={t("contact")} href="/contact" />
         </ul>
       </nav>
     </div>

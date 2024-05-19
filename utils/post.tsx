@@ -41,7 +41,7 @@ export const addPost = async ({
       `images/${postImage.name}${newPostRef.id}`
     );
 
-    // Upload the new image to Firebase Storage
+    // Upload image to Firebase Storage
     newImageRef.put(postImage).then((snapshot) => {
       console.log(`Uploaded a ${postImage.name} image!`);
 
@@ -200,4 +200,34 @@ export const EditPost = async ({
     .catch((error) => {
       console.error("Error updating post: ", error);
     });
+};
+
+export const AddComment = async (
+  postId: string,
+  commenterName: string,
+  commentContent: string
+) => {
+  try {
+    let docRefComment = await firebase.firestore().collection("comments").add({
+      commentContent,
+      commenterName,
+    });
+
+    await docRefComment.update({
+      createdAt: firebase.firestore.FieldValue.serverTimestamp(),
+      id: docRefComment.id,
+    });
+
+    console.log("Document written with ID: ", docRefComment.id);
+
+    await firebase
+      .firestore()
+      .collection("posts")
+      .doc(postId)
+      .update({
+        comments: firebase.firestore.FieldValue.arrayUnion(docRefComment),
+      });
+  } catch (error) {
+    console.log("Error adding comment");
+  }
 };

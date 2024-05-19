@@ -3,9 +3,8 @@ import { Profile } from "./profile";
 
 export type Comment = {
   id: string;
-  commentId: string;
   createdAt: Timestamp;
-  content: string;
-  commentorName: string;
+  commentContent: string;
+  commenterName: string;
   reports?: string[];
 };

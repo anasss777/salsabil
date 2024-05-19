@@ -668,3 +668,151 @@ export const svgDelete = (
     </g>
   </svg>
 );
+
+export const svgSend = (
+  <svg
+    viewBox="0 0 48 48"
+    xmlns="http://www.w3.org/2000/svg"
+    fill="#fff"
+    transform="rotate(180)"
+    height={22}
+    width={22}
+  >
+    <g id="SVGRepo_bgCarrier" strokeWidth="0"></g>
+    <g
+      id="SVGRepo_tracerCarrier"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    ></g>
+    <g id="SVGRepo_iconCarrier">
+      {" "}
+      <title>send-solid</title>{" "}
+      <g id="Layer_2" data-name="Layer 2">
+        {" "}
+        <g id="invisible_box" data-name="invisible box">
+          {" "}
+          <rect width="48" height="48" fill="none"></rect>{" "}
+        </g>{" "}
+        <g id="icons_Q2" data-name="icons Q2">
+          {" "}
+          <path d="M44.9,23.2l-38-18L6,5A2,2,0,0,0,4,7L9.3,23H24a2.1,2.1,0,0,1,2,2,2,2,0,0,1-2,2H9.3L4,43a2,2,0,0,0,2,2l.9-.2,38-18A2,2,0,0,0,44.9,23.2Z"></path>{" "}
+        </g>{" "}
+      </g>{" "}
+    </g>
+  </svg>
+);
+
+export const svgSendEn = (
+  <svg
+    viewBox="0 0 48 48"
+    xmlns="http://www.w3.org/2000/svg"
+    fill="#fff"
+    height={22}
+    width={22}
+  >
+    <g id="SVGRepo_bgCarrier" strokeWidth="0"></g>
+    <g
+      id="SVGRepo_tracerCarrier"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    ></g>
+    <g id="SVGRepo_iconCarrier">
+      {" "}
+      <title>send-solid</title>{" "}
+      <g id="Layer_2" data-name="Layer 2">
+        {" "}
+        <g id="invisible_box" data-name="invisible box">
+          {" "}
+          <rect width="48" height="48" fill="none"></rect>{" "}
+        </g>{" "}
+        <g id="icons_Q2" data-name="icons Q2">
+          {" "}
+          <path d="M44.9,23.2l-38-18L6,5A2,2,0,0,0,4,7L9.3,23H24a2.1,2.1,0,0,1,2,2,2,2,0,0,1-2,2H9.3L4,43a2,2,0,0,0,2,2l.9-.2,38-18A2,2,0,0,0,44.9,23.2Z"></path>{" "}
+        </g>{" "}
+      </g>{" "}
+    </g>
+  </svg>
+);
+
+export const svgComment = (
+  <svg
+    viewBox="0 0 32 32"
+    version="1.1"
+    xmlns="http://www.w3.org/2000/svg"
+    fill="#8a20fa"
+    height={25}
+    width={25}
+  >
+    <g id="SVGRepo_bgCarrier" strokeWidth="0"></g>
+    <g
+      id="SVGRepo_tracerCarrier"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    ></g>
+    <g id="SVGRepo_iconCarrier">
+      {" "}
+      <defs> </defs>{" "}
+      <g
+        id="Page-1"
+        stroke="none"
+        strokeWidth="1"
+        fill="none"
+        fillRule="evenodd"
+      >
+        {" "}
+        <g
+          id="Icon-Set"
+          transform="translate(-204.000000, -255.000000)"
+          fill="#8a20fa"
+        >
+          {" "}
+          <path
+            d="M228,267 C226.896,267 226,267.896 226,269 C226,270.104 226.896,271 228,271 C229.104,271 230,270.104 230,269 C230,267.896 229.104,267 228,267 L228,267 Z M220,281 C218.832,281 217.704,280.864 216.62,280.633 L211.912,283.463 L211.975,278.824 C208.366,276.654 206,273.066 206,269 C206,262.373 212.268,257 220,257 C227.732,257 234,262.373 234,269 C234,275.628 227.732,281 220,281 L220,281 Z M220,255 C211.164,255 204,261.269 204,269 C204,273.419 206.345,277.354 210,279.919 L210,287 L217.009,282.747 C217.979,282.907 218.977,283 220,283 C228.836,283 236,276.732 236,269 C236,261.269 228.836,255 220,255 L220,255 Z M212,267 C210.896,267 210,267.896 210,269 C210,270.104 210.896,271 212,271 C213.104,271 214,270.104 214,269 C214,267.896 213.104,267 212,267 L212,267 Z M220,267 C218.896,267 218,267.896 218,269 C218,270.104 218.896,271 220,271 C221.104,271 222,270.104 222,269 C222,267.896 221.104,267 220,267 L220,267 Z"
+            id="comment-3"
+          >
+            {" "}
+          </path>{" "}
+        </g>{" "}
+      </g>{" "}
+    </g>
+  </svg>
+);
+
+export const svgUserDark = (
+  <svg
+    viewBox="0 0 24 24"
+    fill="currentColor"
+    height="40px"
+    width="40px"
+    className="text-gray-500"
+  >
+    <path d="M12 2C6.579 2 2 6.579 2 12s4.579 10 10 10 10-4.579 10-10S17.421 2 12 2zm0 5c1.727 0 3 1.272 3 3s-1.273 3-3 3c-1.726 0-3-1.272-3-3s1.274-3 3-3zm-5.106 9.772c.897-1.32 2.393-2.2 4.106-2.2h2c1.714 0 3.209.88 4.106 2.2C15.828 18.14 14.015 19 12 19s-3.828-.86-5.106-2.228z" />
+  </svg>
+);
+
+export const svgClock = (
+  <svg
+    viewBox="0 0 24 24"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+    height={17}
+    width={17}
+  >
+    <g id="SVGRepo_bgCarrier" strokeWidth="0"></g>
+    <g
+      id="SVGRepo_tracerCarrier"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    ></g>
+    <g id="SVGRepo_iconCarrier">
+      {" "}
+      <path
+        d="M12 7V12L9.5 13.5M21 12C21 16.9706 16.9706 21 12 21C7.02944 21 3 16.9706 3 12C3 7.02944 7.02944 3 12 3C16.9706 3 21 7.02944 21 12Z"
+        stroke="#6b7280"
+        strokeWidth="2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      ></path>{" "}
+    </g>
+  </svg>
+);
