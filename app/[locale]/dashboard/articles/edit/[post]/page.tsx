@@ -1,11 +1,10 @@
 "use client";
 
+import React, { useEffect, useState } from "react";
+import firebase from "@/firebase";
+import { Post } from "@/types/post";
 import { useLocale, useTranslations } from "next-intl";
-import React, { useState, useTransition } from "react";
-import ReactQuill from "react-quill";
-import "react-quill/dist/quill.snow.css";
-import parse from "html-react-parser";
-import { addPost } from "@/utils/post";
+import Loading from "@/components/Loading";
 import { useRouter } from "next/navigation";
 import {
   svgAddImage,
@@ -13,17 +12,28 @@ import {
   svgDot,
   svgLoading,
 } from "@/components/svgPaths";
+import ReactQuill from "react-quill";
+import "react-quill/dist/quill.snow.css";
 import Image from "next/image";
+import parse from "html-react-parser";
+import { EditPost } from "@/utils/post";
 
-const Dashboard = () => {
+type Props = {
+  params: { post: string };
+};
+
+const Page = ({ params }: Props) => {
+  const id = params.post;
+  const [post, setPost] = useState<Post | null>(null);
+  const [loading, setLoading] = useState(true);
   const t = useTranslations("dashboard");
   const locale = useLocale();
   const isArabic = locale === "ar";
 
   const [postImage, setPostImage] = useState<File>();
-  const [imageUrl, setImageUrl] = useState<string>();
-  const [postTitle, setPostTitle] = useState("");
-  const [content, setContent] = useState("");
+  const [imageUrl, setImageUrl] = useState<string>("");
+  const [postTitle, setPostTitle] = useState<string>("");
+  const [content, setContent] = useState<string>("");
   const [isPosting, setIsPosting] = useState(false);
   const router = useRouter();
 
@@ -45,6 +55,51 @@ const Dashboard = () => {
       setImageUrl(URL.createObjectURL(file));
     }
   };
+
+  useEffect(() => {
+    const unsubscribe = firebase
+      .firestore()
+      .collection("posts")
+      .onSnapshot((snapshot) => {
+        const newPosts: Post[] = []; // Create a new array to hold updated posts
+        snapshot.forEach((doc) => {
+          newPosts.push({
+            postId: doc.id,
+            ...doc.data(),
+          } as Post);
+        });
+
+        // Set a post based on postId
+        const postId = id; // Replace with your postId
+        const post = newPosts.find((post) => post.postId === postId);
+        if (post) {
+          setPost(post);
+          setImageUrl(post.postImage);
+          setPostTitle(post.postTitle);
+          setContent(post.content);
+          setLoading(false);
+        }
+      });
+
+    // Unsubscribe from Firestore listener when component unmounts
+    return () => unsubscribe();
+  }, [id]);
+
+  if (loading) {
+    return (
+      <div
+        className={`flex flex-col justify-center items-center pb-20 pt-10 px-2 md:px-10 lg:px-20 ${
+          isArabic && "rtl"
+        }`}
+      >
+        <Loading />
+      </div>
+    );
+  }
+
+  if (!post) {
+    return <p>No post found.</p>;
+  }
 
   return (
     <div
@@ -127,11 +182,13 @@ const Dashboard = () => {
       <button
         className={`btn px-4 mx-auto bg-primary mb-20`}
         onClick={() => {
-          addPost({
+          EditPost({
+            postId: post.postId,
             postTitle,
             content,
             category: "test",
             postImage,
+            oldPostImage: post.postImage,
           });
           setIsPosting(true);
           setTimeout(() => {
@@ -154,4 +211,4 @@ const Dashboard = () => {
   );
 };
 
-export default Dashboard;
+export default Page;

@@ -6,6 +6,6 @@ export type Comment = {
   commentId: string;
   createdAt: Timestamp;
   content: string;
-  commentor: Profile;
+  commentorName: string;
   reports?: string[];
 };

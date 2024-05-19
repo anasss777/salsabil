@@ -1,4 +1,5 @@
 import { Timestamp } from "firebase/firestore";
+import { Comment } from "./comment";
 
 export type Post = {
   postId: string;

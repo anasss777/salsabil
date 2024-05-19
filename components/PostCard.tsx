@@ -22,8 +22,8 @@ const PostCard = ({ category, title, imageSrc, pageLink, isbook }: Props) => {
     <Link
       locale={locale}
       href={`/post/${pageLink}`}
-      className={`flex flex-col gap-4 justify-start items-start rounded-3xl  w-full p-3 pb-5 hover:scale-[1.01] transition-all
-      duration-300 ease-linear mx-auto dark:shadow-lg h-fit md:h-[350px] lg:h-[300px] bg-gradient-to-b from-primary/60 via-primary/20
+      className={`flex flex-col gap-4 justify-start items-start rounded-3xl  w-full p-3 pb-5 hover:scale-[1.01] transition-all duration-300
+      ease-linear mx-auto shadow-Card4 h-fit md:h-[350px] lg:h-[300px] bg-gradient-to-b from-primary/60 via-primary/20
       to-transparent dark:bg-gradient-to-b dark:from-primary/50 dark:via-primary/20 dark:to-transparent my-3`}
     >
       <div className={`w-full h-[50%]`}>

@@ -55,26 +55,18 @@ const PostsPage = () => {
       <div
         className={`flex flex-col md:grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5 justify-center`}
       >
-        {posts.map((post, index) => (
-          <div key={index}>
-            <PostCard
-              category={post.category}
-              title={post.postTitle}
-              imageSrc={post.postImage}
-              pageLink={`/${post.postId}`}
-            />
-          </div>
-        ))}
-        {posts.map((post, index) => (
-          <div key={index}>
-            <PostCard
-              category={post.category}
-              title={post.postTitle}
-              imageSrc={post.postImage}
-              pageLink={`/${post.postId}`}
-            />
-          </div>
-        ))}
+        {posts
+          .sort((a, b) => b.createdAt.seconds - a.createdAt.seconds)
+          .map((post, index) => (
+            <div key={index}>
+              <PostCard
+                category={post.category}
+                title={post.postTitle}
+                imageSrc={post.postImage}
+                pageLink={`/${post.postId}`}
+              />
+            </div>
+          ))}
       </div>
     </div>
   );
