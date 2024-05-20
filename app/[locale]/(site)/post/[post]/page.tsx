@@ -5,7 +5,7 @@ import firebase from "@/firebase";
 import { Post } from "@/types/post";
 import parse from "html-react-parser";
 import Image from "next/image";
-import { svgDot, svgHome, svgMind } from "@/components/svgPaths";
+import { svgDot, svgMind } from "@/components/svgPaths";
 import Loading from "@/components/Loading";
 import { useLocale } from "next-intl";
 import CommentInput from "@/components/CommentInput";
@@ -142,11 +142,6 @@ const Page = ({ params }: Props) => {
           {comments.map((comment, index) => (
             <div key={index}>
               <CommentCard comment={comment} />
-              {post.comments.length - 1 !== index && (
-                <div
-                  className={`border-t border-t-secondary/60 my-5 w-full`}
-                ></div>
-              )}
             </div>
           ))}
         </div>
