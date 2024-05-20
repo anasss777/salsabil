@@ -130,7 +130,7 @@ const Dashboard = () => {
           addPost({
             postTitle,
             content,
-            category: "test",
+            category: "علم نفس تربوي",
             postImage,
           });
           setIsPosting(true);

@@ -48,6 +48,7 @@ const ArticlesList = () => {
               {t("id")}
             </th>
             <th className={`p-2`}>{t("postTitle")}</th>
+            <th className={`p-2`}>{t("category")}</th>
             <th className={`p-2`}>{t("date")}</th>
             <th
               className={`p-2 ${

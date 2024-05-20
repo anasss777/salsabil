@@ -43,6 +43,7 @@ const ArticleRow = ({ post }: Props) => {
     <tr className="my-4">
       <td className={`text-gray-400 text-center py-3`}>{post.postId}</td>
       <td className={`text-gray-400 text-center py-3`}>{post.postTitle}</td>
+      <td className={`text-gray-400 text-center py-3`}>{post.category}</td>
       <td className={`text-gray-400 text-center py-3`}>
         {post.createdAt.toDate().toLocaleDateString()}
       </td>

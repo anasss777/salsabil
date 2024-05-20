@@ -186,7 +186,7 @@ const Page = ({ params }: Props) => {
             postId: post.postId,
             postTitle,
             content,
-            category: "test",
+            category: "علم نفس تربوي",
             postImage,
             oldPostImage: post.postImage,
           });
@@ -199,11 +199,11 @@ const Page = ({ params }: Props) => {
       >
         {isPosting ? (
           <span className={`flex flex-row items-center gap-1`}>
-            {t("loading")} {svgLoading}
+            {t("editing")} {svgLoading}
           </span>
         ) : (
           <span className={`flex flex-row items-center gap-1`}>
-            {t("submit")}
+            {t("edit")}
           </span>
         )}
       </button>

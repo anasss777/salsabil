@@ -5,12 +5,13 @@ import firebase from "@/firebase";
 import { Post } from "@/types/post";
 import parse from "html-react-parser";
 import Image from "next/image";
-import { svgDot } from "@/components/svgPaths";
+import { svgDot, svgHome, svgMind } from "@/components/svgPaths";
 import Loading from "@/components/Loading";
 import { useLocale } from "next-intl";
 import CommentInput from "@/components/CommentInput";
 import CommentCard from "@/components/CommentCard";
 import { Comment } from "@/types/comment";
+import Breadcrumbs from "@/components/BreadCrumbs";
 
 type Props = {
   params: { post: string };
@@ -91,6 +92,15 @@ const Page = ({ params }: Props) => {
 
   return (
     <div className={`rtl px-10 lg:px-32 py-20`}>
+      <div className={`mb-16`}>
+        <Breadcrumbs
+          categorySvg={svgMind}
+          categoryName={post.category}
+          categoryLink={""}
+          postTitle={post.postTitle}
+        />
+      </div>
+
       <div className={`flex flex-col`}>
         {/* Post title */}
         <p
